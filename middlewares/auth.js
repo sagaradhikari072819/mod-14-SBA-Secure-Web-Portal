@@ -23,6 +23,7 @@ function authMiddleware(req, res, next) {
     req.user = data;
   } catch {
     console.log("Invalid token");
+    res.status(403).json({message: "Please Login"})
   }
 
   // Return the request object so it can be passed to the resolver as `context`
